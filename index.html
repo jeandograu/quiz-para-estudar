@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simulado de Inglês - 6º Ano</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#2c3e50;
+color:white;
+text-align:center;
+}
+
+#quiz{
+background:white;
+color:black;
+width:520px;
+margin:auto;
+padding:20px;
+border-radius:10px;
+}
+
+button{
+display:block;
+margin:8px auto;
+padding:10px;
+width:300px;
+border:none;
+background:#3498db;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.correto{
+background:#2ecc71 !important;
+}
+
+.errado{
+background:#e74c3c !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Simulado de Inglês - 6º Ano 📚</h1>
+
+<div id="quiz">
+
+<h2 id="pergunta"></h2>
+
+<div id="opcoes"></div>
+
+</div>
+
+<script>
+
+const perguntas = [
+
+{
+pergunta:"1) What is the meaning of 'teacher'?",
+opcoes:["Student","Professor","Diretor","Amigo"],
+resposta:1
+},
+
+{
+pergunta:"2) Complete: She ____ my best friend.",
+opcoes:["am","is","are","be"],
+resposta:1
+},
+
+{
+pergunta:"3) What is the plural of 'foot'?",
+opcoes:["Foots","Feet","Feets","Footes"],
+resposta:1
+},
+
+{
+pergunta:"4) Translate: Eu tenho dois irmãos.",
+opcoes:[
+"I have two brothers",
+"I has two brothers",
+"I am two brothers",
+"I are two brothers"
+],
+resposta:0
+},
+
+{
+pergunta:"5) What does 'hungry' mean?",
+opcoes:["Feliz","Cansado","Com fome","Bravo"],
+resposta:2
+},
+
+{
+pergunta:"6) Complete: They ____ playing soccer.",
+opcoes:["is","am","are","be"],
+resposta:2
+},
+
+{
+pergunta:"7) Choose the correct sentence:",
+opcoes:[
+"She go to school",
+"She goes to school",
+"She going to school",
+"She gone to school"
+],
+resposta:1
+},
+
+{
+pergunta:"8) Opposite of 'big':",
+opcoes:["Tall","Small","Heavy","Fast"],
+resposta:1
+},
+
+{
+pergunta:"9) Translate: Ele está estudando inglês.",
+opcoes:[
+"He study english",
+"He studying english",
+"He is studying english",
+"He studies english"
+],
+resposta:2
+},
+
+{
+pergunta:"10) What does 'library' mean?",
+opcoes:["Escola","Biblioteca","Restaurante","Hospital"],
+resposta:1
+},
+
+{
+pergunta:"11) Choose the correct question:",
+opcoes:[
+"You like pizza?",
+"Do you like pizza?",
+"Does you like pizza?",
+"Are you like pizza?"
+],
+resposta:1
+},
+
+{
+pergunta:"12) Complete: I ____ 12 years old.",
+opcoes:["is","am","are","be"],
+resposta:1
+},
+
+{
+pergunta:"13) Which word is a verb?",
+opcoes:["Blue","Run","Happy","Tall"],
+resposta:1
+},
+
+{
+pergunta:"14) Translate: Nós estamos felizes.",
+opcoes:[
+"We happy",
+"We are happy",
+"We is happy",
+"We am happy"
+],
+resposta:1
+},
+
+{
+pergunta:"15) What does 'fast' mean?",
+opcoes:["Devagar","Rápido","Grande","Pequeno"],
+resposta:1
+}
+
+]
+
+let atual=0
+let pontos=0
+
+function mostrarPergunta(){
+
+let p=perguntas[atual]
+
+document.getElementById("pergunta").innerText=p.pergunta
+
+let html=""
+
+p.opcoes.forEach((opcao,index)=>{
+html+=`<button onclick="responder(${index},this)">${opcao}</button>`
+})
+
+document.getElementById("opcoes").innerHTML=html
+}
+
+function responder(opcao,botao){
+
+let p=perguntas[atual]
+
+let botoes=document.querySelectorAll("#opcoes button")
+
+botoes.forEach((btn,i)=>{
+
+if(i===p.resposta){
+btn.classList.add("correto")
+}
+
+if(i===opcao && opcao!==p.resposta){
+btn.classList.add("errado")
+}
+
+btn.disabled=true
+
+})
+
+if(opcao===p.resposta){
+pontos++
+}
+
+setTimeout(()=>{
+
+atual++
+
+if(atual<perguntas.length){
+
+mostrarPergunta()
+
+}else{
+
+let porcentagem=Math.round((pontos/perguntas.length)*100)
+
+document.getElementById("quiz").innerHTML=
+`<h2>Prova Finalizada</h2>
+<p>Acertos: ${pontos}/15</p>
+<h2>${porcentagem}%</h2>`
+}
+
+},1500)
+
+}
+
+mostrarPergunta()
+
+</script>
+
+</body>
+</html>
