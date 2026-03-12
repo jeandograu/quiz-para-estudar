@@ -88,6 +88,17 @@ width:100%;
 background:#00ff9f;
 }
 
+.voltarMenu{
+margin-bottom:15px;
+padding:10px 15px;
+border:none;
+border-radius:8px;
+background:#ff7675;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
 .resultado{
 font-size:28px;
 margin-top:20px;
@@ -123,6 +134,8 @@ cursor:pointer;
 </div>
 
 <div id="quiz">
+
+<button class="voltarMenu" onclick="voltarMenu()">⬅ Voltar ao menu</button>
 
 <div id="tempoBarra">
 <div id="tempo"></div>
@@ -231,26 +244,26 @@ portugues:[
 ],
 
 artes:[
-{pergunta:"Quem pintou Mona Lisa",opcoes:["Da Vinci","Van Gogh","Picasso","Monet"],resposta:0},
-{pergunta:"Autor Noite Estrelada",opcoes:["Van Gogh","Picasso","Monet","Da Vinci"],resposta:0},
-{pergunta:"Arte dobrar papel",opcoes:["Origami","Pintura","Escultura","Cinema"],resposta:0},
-{pergunta:"Ferramenta pintura",opcoes:["Pincel","Martelo","Serrote","Faca"],resposta:0},
-{pergunta:"Arte japonesa papel",opcoes:["Origami","Cinema","Teatro","Escultura"],resposta:0},
-{pergunta:"Artista cubismo",opcoes:["Picasso","Da Vinci","Monet","Van Gogh"],resposta:0},
-{pergunta:"Pintura famosa Da Vinci",opcoes:["Mona Lisa","Guernica","Girassóis","Noite Estrelada"],resposta:0},
-{pergunta:"Ferramenta desenho",opcoes:["Lápis","Serrote","Martelo","Chave"],resposta:0},
-{pergunta:"Arte tridimensional",opcoes:["Escultura","Pintura","Desenho","Gravura"],resposta:0},
-{pergunta:"Museu guarda",opcoes:["Arte","Comida","Carros","Animais"],resposta:0},
-{pergunta:"Arte de atuar",opcoes:["Teatro","Cinema","Dança","Pintura"],resposta:0},
-{pergunta:"Arte movimento corpo",opcoes:["Dança","Pintura","Escultura","Gravura"],resposta:0},
-{pergunta:"Ferramenta pintar parede",opcoes:["Rolo","Martelo","Serrote","Chave"],resposta:0},
-{pergunta:"Arte antiga cavernas",opcoes:["Pintura rupestre","Cinema","Teatro","Escultura"],resposta:0},
-{pergunta:"Artista impressionismo",opcoes:["Monet","Picasso","Da Vinci","Van Gogh"],resposta:0},
-{pergunta:"Arte fotografia usa",opcoes:["Câmera","Pincel","Lápis","Martelo"],resposta:0},
-{pergunta:"Arte esculpir pedra",opcoes:["Escultura","Pintura","Cinema","Teatro"],resposta:0},
-{pergunta:"Arte animada tela",opcoes:["Cinema","Escultura","Pintura","Gravura"],resposta:0},
+{pergunta:"Quem pintou Mona Lisa",opcoes:["Leonardo da Vinci","Van Gogh","Picasso","Monet"],resposta:0},
+{pergunta:"Autor de Noite Estrelada",opcoes:["Vincent van Gogh","Monet","Picasso","Da Vinci"],resposta:0},
+{pergunta:"Arte de dobrar papel",opcoes:["Origami","Escultura","Cinema","Gravura"],resposta:0},
+{pergunta:"Ferramenta de pintura",opcoes:["Pincel","Martelo","Serrote","Faca"],resposta:0},
+{pergunta:"Movimento artístico de Picasso",opcoes:["Cubismo","Barroco","Impressionismo","Renascimento"],resposta:0},
+{pergunta:"Artista do Impressionismo",opcoes:["Claude Monet","Picasso","Van Gogh","Michelangelo"],resposta:0},
+{pergunta:"Pintura em paredes antigas",opcoes:["Pintura rupestre","Grafite","Escultura","Cinema"],resposta:0},
+{pergunta:"Ferramenta para desenhar",opcoes:["Lápis","Martelo","Serrote","Faca"],resposta:0},
+{pergunta:"Arte tridimensional",opcoes:["Escultura","Pintura","Cinema","Fotografia"],resposta:0},
+{pergunta:"Arte com câmera",opcoes:["Fotografia","Escultura","Teatro","Pintura"],resposta:0},
+{pergunta:"Arte de atuar",opcoes:["Teatro","Dança","Cinema","Escultura"],resposta:0},
+{pergunta:"Arte com movimento do corpo",opcoes:["Dança","Teatro","Pintura","Escultura"],resposta:0},
+{pergunta:"Ferramenta para colorir",opcoes:["Lápis de cor","Serrote","Martelo","Chave"],resposta:0},
+{pergunta:"Arte com tinta e tela",opcoes:["Pintura","Cinema","Escultura","Teatro"],resposta:0},
+{pergunta:"Arte japonesa papel",opcoes:["Origami","Mangá","Cinema","Anime"],resposta:0},
+{pergunta:"Museu guarda",opcoes:["Arte","Carros","Comida","Animais"],resposta:0},
+{pergunta:"Arte gravar em pedra",opcoes:["Escultura","Pintura","Cinema","Fotografia"],resposta:0},
+{pergunta:"Arte com filme",opcoes:["Cinema","Teatro","Escultura","Pintura"],resposta:0},
 {pergunta:"Arte desenhar",opcoes:["Desenho","Cinema","Teatro","Escultura"],resposta:0},
-{pergunta:"Ferramenta colorir",opcoes:["Lápis de cor","Serrote","Martelo","Faca"],resposta:0}
+{pergunta:"Ferramenta pintar parede",opcoes:["Rolo","Martelo","Serrote","Faca"],resposta:0}
 ]
 
 }
@@ -352,6 +365,15 @@ document.getElementById("quiz").innerHTML=
 <button class="voltar" onclick="location.reload()">Voltar ao menu</button>`
 
 }
+
+}
+
+function voltarMenu(){
+
+clearInterval(timer)
+
+document.getElementById("quiz").style.display="none"
+document.getElementById("menu").style.display="block"
 
 }
 
